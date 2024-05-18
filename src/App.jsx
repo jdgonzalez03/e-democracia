@@ -1,30 +1,30 @@
-// src/App.js
-import { useState } from "react";
-import Header from "./components/Header";
-import VotingForm from "./components/VotingForm";
-import VotingResults from "./components/VotingResult";
+import { Routes, Route, Link } from "react-router-dom";
+import { Home } from "./components/Home";
+import { About } from "./components/About";
+import { Voting } from "./components/Voting";
 
 const App = () => {
-  const [votes, setVotes] = useState({
-    "Candidate 1": 0,
-    "Candidate 2": 0,
-    "Candidate 3": 0,
-  });
-
-  const handleVote = (candidate) => {
-    setVotes((prevVotes) => ({
-      ...prevVotes,
-      [candidate]: prevVotes[candidate] + 1,
-    }));
-  };
-
   return (
-    <div className="App">
-      <Header />
-      <VotingForm onVote={handleVote} />
-      <VotingResults results={votes} />
+    <div>
+      <nav>
+        <ul>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/about">About</Link>
+          </li>
+          <li>
+            <Link to="/voting">Voting</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/voting" element={<Voting />} />
+      </Routes>
     </div>
   );
 };
-
 export default App;

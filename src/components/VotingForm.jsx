@@ -4,7 +4,7 @@ import { useState } from "react";
 import Candidate from "./Candidate";
 import candidatesData from "../candidates.json";
 
-const VotingForm = ({ onVote }) => {
+export const VotingForm = ({ onVote }) => {
   const [selectedCandidate, setSelectedCandidate] = useState("");
 
   const handleSubmit = (e) => {
@@ -28,5 +28,3 @@ const VotingForm = ({ onVote }) => {
     </form>
   );
 };
-
-export default VotingForm;

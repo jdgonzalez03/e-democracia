@@ -3,7 +3,7 @@ import "./VotingResults.css";
 import { Bar, Pie } from "react-chartjs-2";
 import "chart.js/auto";
 
-const VotingResults = ({ results }) => {
+export const VotingResults = ({ results }) => {
   const data = {
     labels: Object.keys(results),
     datasets: [
@@ -39,5 +39,3 @@ const VotingResults = ({ results }) => {
     </div>
   );
 };
-
-export default VotingResults;
