@@ -1,0 +1,8 @@
+.chart-container {
+  width: 80%;
+  margin: auto;
+}
+
+.chart-container > div {
+  margin: 20px 0;
+}
