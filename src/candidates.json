@@ -4,20 +4,20 @@
     "party": "Party A",
     "age": 45,
     "slogan": "For a better future",
-    "image": "./public/images/candidate1.jpg"
+    "image": "/images/candidate1.jpg"
   },
   {
     "name": "Candidate 2",
     "party": "Party B",
     "age": 50,
     "slogan": "Change we need",
-    "image": "./public/images/candidate2.jpg"
+    "image": "/images/candidate2.jpg"
   },
   {
     "name": "Candidate 3",
     "party": "Party C",
     "age": 40,
     "slogan": "Together we can",
-    "image": "./public/images/candidate3.jpg"
+    "image": "/images/candidate3.jpg"
   }
 ]
