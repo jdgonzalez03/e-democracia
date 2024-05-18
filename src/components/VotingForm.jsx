@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Candidate from "./Candidate";
-import candidatesData from "../candidates.json";
+import candidatesData from "../constants/candidates.json";
 
 export const VotingForm = ({ onVote }) => {
   const [selectedCandidate, setSelectedCandidate] = useState("");
