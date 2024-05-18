@@ -63,7 +63,11 @@ const App = () => {
           <Route
             path="/voting"
             element={
-              isAuthenticated ? <Voting /> : <Login onLogin={handleLogin} />
+              isAuthenticated ? (
+                <Voting user={user} />
+              ) : (
+                <Login onLogin={handleLogin} />
+              )
             }
           />
           <Route path="/login" element={<Login onLogin={handleLogin} />} />
