@@ -3,4 +3,4 @@ export const candidateUrl =
 
 export const userUrl = "https://e-democracia-backend.onrender.com/api/user";
 
-export const voteUrl = "http://e-democracia-backend.onrender.com/api/vote";
+export const voteUrl = "https://e-democracia-backend.onrender.com/api/vote";
