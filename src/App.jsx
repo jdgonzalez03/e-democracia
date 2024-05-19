@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
-import { Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link } from "react-router-dom";
 import { Home } from "./components/Home";
 import { About } from "./components/About";
 import { Voting } from "./components/Voting";
@@ -8,16 +8,16 @@ import { Login } from "./components/Login";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState({});
 
-  const handleLogin = (username) => {
+  const handleLogin = (userObject) => {
     setIsAuthenticated(true);
-    setUser(username);
+    setUser(userObject);
   };
 
   const handleLogout = () => {
     setIsAuthenticated(false);
-    setUser("");
+    setUser({});
   };
 
   return (

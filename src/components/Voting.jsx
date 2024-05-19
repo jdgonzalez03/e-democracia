@@ -1,27 +1,41 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { VotingResults } from "./VotingResult";
 import { VotingForm } from "./VotingForm";
+import axios from "axios";
+import { candidateUrl } from "../constants/urls";
 
 export const Voting = ({ user }) => {
-  const [votes, setVotes] = useState({
-    "Candidate 1": 0,
-    "Candidate 2": 0,
-    "Candidate 3": 0,
-  });
+  const [candidates, setCandidates] = useState([]);
 
-  const handleVote = (candidate) => {
-    setVotes((prevVotes) => ({
-      ...prevVotes,
-      [candidate]: prevVotes[candidate] + 1,
-    }));
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await axios.get(candidateUrl);
+        setCandidates(response.data);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      }
+    };
+
+    fetchCandidates();
+  }, []);
+
+  const refresh = async () => {
+    try {
+      const response = await axios.get(candidateUrl);
+      setCandidates(response.data);
+    } catch (error) {
+      console.error("Error fetching candidates:", error);
+    }
   };
 
   return (
     <div>
       <h2>Voting</h2>
-      <VotingForm onVote={handleVote} user={user} />
-      <VotingResults results={votes} />
+      <VotingForm refresh={refresh} user={user} />
+      <VotingResults results={candidates} />
     </div>
   );
 };

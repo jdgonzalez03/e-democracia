@@ -1,24 +1,34 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import usersData from "../constants/users.json";
+import axios from "axios";
+import { userUrl } from "../constants/urls";
 
 export const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validar usuario
-    const user = usersData.find(
-      (u) => u.username === username && u.password === password
-    );
+    try {
+      // Obtener todos los usuarios desde la API
+      const response = await axios.get(userUrl);
+      const users = response.data;
 
-    if (user) {
-      onLogin(username);
-    } else {
-      setError("Invalid username or password");
+      // Validar usuario
+      const user = users.find(
+        (u) => u.firstName === username && u.code === password
+      );
+
+      if (user) {
+        onLogin(user); // Asume que la función onLogin ahora maneja el ID del usuario
+      } else {
+        setError("Invalid username or password");
+      }
+    } catch (error) {
+      console.error("Error fetching users:", error);
+      setError("An error occurred while logging in");
     }
   };
 

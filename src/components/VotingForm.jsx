@@ -1,26 +1,41 @@
 /* eslint-disable react/prop-types */
-
 import { useState, useEffect } from "react";
 import Candidate from "./Candidate";
-import candidatesData from "../constants/candidates.json";
+import axios from "axios";
+import { candidateUrl, voteUrl } from "../constants/urls";
 
-export const VotingForm = ({ onVote, user }) => {
+export const VotingForm = ({ refresh, user }) => {
   const [selectedCandidate, setSelectedCandidate] = useState("");
-  const [hasVoted, setHasVoted] = useState(false);
+  const [candidates, setCandidates] = useState([]);
+  const [hasVoted, setHasVoted] = useState(user.hasVoted);
 
   useEffect(() => {
-    const userVote = localStorage.getItem(`vote_${user}`);
-    if (userVote) {
-      setHasVoted(true);
-    }
-  }, [user]);
+    // Obtener candidatos desde la URL
+    const fetchCandidates = async () => {
+      try {
+        const response = await axios.get(candidateUrl);
+        setCandidates(response.data);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      }
+    };
 
-  const handleSubmit = (e) => {
+    fetchCandidates();
+  }, []);
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (selectedCandidate && !hasVoted) {
-      onVote(selectedCandidate);
-      localStorage.setItem(`vote_${user}`, selectedCandidate);
-      setHasVoted(true);
+      try {
+        await axios.post(voteUrl, {
+          candidateName: selectedCandidate,
+          userId: user._id,
+        });
+        refresh();
+        setHasVoted(true);
+      } catch (error) {
+        console.error("Error voting:", error);
+      }
     }
   };
 
@@ -37,9 +52,9 @@ export const VotingForm = ({ onVote, user }) => {
       {hasVoted ? (
         <p>You have already voted.</p>
       ) : (
-        candidatesData.map((candidate) => (
+        candidates.map((candidate) => (
           <Candidate
-            key={candidate.name}
+            key={candidate._id}
             candidate={candidate}
             onSelect={setSelectedCandidate}
           />
