@@ -5,6 +5,7 @@ import { Home } from "./components/Home";
 import { About } from "./components/About";
 import { Voting } from "./components/Voting";
 import { Login } from "./components/Login";
+import "./App.css";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -21,8 +22,13 @@ const App = () => {
   };
 
   return (
-    <div>
-      <div>
+    <>
+      <div className="container-navbar">
+        <p className="logo">
+          E-<span className="yellow yellow-animation">Demo</span>
+          <span className="blue blue-animation">cra</span>
+          <span className="red red-animation">cia</span>
+        </p>
         <nav>
           <ul>
             {!isAuthenticated ? (
@@ -47,33 +53,31 @@ const App = () => {
             )}
           </ul>
         </nav>
-        <Routes>
-          <Route
-            path="/"
-            element={
-              isAuthenticated ? <Home /> : <Login onLogin={handleLogin} />
-            }
-          />
-          <Route
-            path="/about"
-            element={
-              isAuthenticated ? <About /> : <Login onLogin={handleLogin} />
-            }
-          />
-          <Route
-            path="/voting"
-            element={
-              isAuthenticated ? (
-                <Voting user={user} />
-              ) : (
-                <Login onLogin={handleLogin} />
-              )
-            }
-          />
-          <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        </Routes>
       </div>
-    </div>
+      <Routes>
+        <Route
+          path="/"
+          element={isAuthenticated ? <Home /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/about"
+          element={
+            isAuthenticated ? <About /> : <Login onLogin={handleLogin} />
+          }
+        />
+        <Route
+          path="/voting"
+          element={
+            isAuthenticated ? (
+              <Voting user={user} />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route path="/login" element={<Login onLogin={handleLogin} />} />
+      </Routes>
+    </>
   );
 };
 

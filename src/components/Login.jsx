@@ -2,11 +2,13 @@
 import { useState } from "react";
 import axios from "axios";
 import { userUrl } from "../constants/urls";
+import "./Login.css";
 
 export const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,30 +34,55 @@ export const Login = ({ onLogin }) => {
     }
   };
 
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
+    <div className="welcome-section">
+      <h2>
+        ¡Bienvenidos a <br />
+        E-<span className="yellow">Demo</span>
+        <span className="blue">cra</span>
+        <span className="red">cia</span>!
+      </h2>
+      <p>
+        Por favor, <span>inicia sesión</span> para comenzar.
+      </p>
+      <form onSubmit={handleSubmit} className="login-form">
+        <div className="form-group">
+          <label htmlFor="username">Nombre de usuario:</label>
           <input
             type="text"
             id="username"
+            required
             value={username}
             onChange={(e) => setUsername(e.target.value)}
+            className="form-control"
           />
         </div>
-        <div>
-          <label htmlFor="password">Password:</label>
+        <div className="form-group">
+          <label htmlFor="password">Contraseña:</label>
           <input
-            type="password"
+            type={showPassword ? "text" : "password"}
             id="password"
+            required
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            className="form-control"
           />
+          <div className="show-password">
+            <button
+              type="button"
+              className="toggle-password"
+              onClick={togglePasswordVisibility}
+            >
+              {showPassword ? "Ocultar" : "Mostrar"}
+            </button>
+          </div>
         </div>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <button type="submit">Login</button>
+        <button type="submit">Iniciar sesión</button>
       </form>
     </div>
   );
