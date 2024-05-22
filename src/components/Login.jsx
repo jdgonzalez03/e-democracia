@@ -3,6 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { userUrl } from "../constants/urls";
 import "./Login.css";
+import confetti from "canvas-confetti";
 
 export const Login = ({ onLogin }) => {
   const [username, setUsername] = useState("");
@@ -28,6 +29,8 @@ export const Login = ({ onLogin }) => {
       } else {
         setError("Invalid username or password");
       }
+
+      confetti();
     } catch (error) {
       console.error("Error fetching users:", error);
       setError("An error occurred while logging in");

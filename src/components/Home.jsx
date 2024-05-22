@@ -1,9 +1,9 @@
-import { Header } from "./Header";
-
 export const Home = () => {
   return (
     <>
-      <Header />
+      <header>
+        <h1>Online Voting App</h1>
+      </header>{" "}
     </>
   );
 };
