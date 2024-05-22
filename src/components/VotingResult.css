@@ -10,8 +10,7 @@ h2, h3 {
   text-align: center;
 }
 
-@media (max-width: 768px) {
-  .chart-container {
-    width: 100%;
-  }
+
+.chart-container {
+  width: 100%;
 }
