@@ -2,6 +2,7 @@
 import "./VotingResults.css";
 import { Bar, Pie } from "react-chartjs-2";
 import "chart.js/auto";
+import "./VotingResult.css";
 
 export const VotingResults = ({ results }) => {
   // Extraemos los nombres y los votos de los candidatos
@@ -13,7 +14,7 @@ export const VotingResults = ({ results }) => {
     labels: candidateNames,
     datasets: [
       {
-        label: "Votes",
+        label: "Votos",
         data: votes,
         backgroundColor: [
           "rgba(75, 192, 192, 0.2)",
@@ -35,7 +36,7 @@ export const VotingResults = ({ results }) => {
     labels: candidateNames,
     datasets: [
       {
-        label: "Votes",
+        label: "Votos",
         data: votes,
         backgroundColor: [
           "rgba(75, 192, 192, 0.2)",
@@ -53,14 +54,16 @@ export const VotingResults = ({ results }) => {
   };
 
   return (
-    <div>
-      <h2>Voting Results</h2>
-      <div>
-        <h3>Bar Chart</h3>
+    <div className="voting-results-container">
+      <h2>
+        Resultados de la <span className="red">Votación</span>{" "}
+      </h2>
+      <div className="chart-container">
+        <h3>Gráfico de Barras</h3>
         <Bar data={barChartData} />
       </div>
-      <div>
-        <h3>Pie Chart</h3>
+      <div className="chart-container">
+        <h3>Gráfico de Pastel</h3>
         <Pie data={pieChartData} />
       </div>
     </div>

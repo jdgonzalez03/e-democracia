@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import Candidate from "./Candidate";
 import axios from "axios";
 import { candidateUrl, voteUrl } from "../constants/urls";
+import confetti from "canvas-confetti";
 
 export const VotingForm = ({ refresh, user }) => {
   const [selectedCandidate, setSelectedCandidate] = useState("");
@@ -25,6 +26,7 @@ export const VotingForm = ({ refresh, user }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    confetti();
     if (selectedCandidate && !hasVoted) {
       try {
         await axios.post(voteUrl, {
@@ -48,9 +50,11 @@ export const VotingForm = ({ refresh, user }) => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2>Vote for your favorite candidate</h2>
+      <h2>
+        Vota por tu candidato <span className="blue">favorito</span>.
+      </h2>
       {hasVoted ? (
-        <p>You have already voted.</p>
+        <p>Ya has votado anteriormente.</p>
       ) : (
         candidates.map((candidate) => (
           <Candidate
@@ -61,7 +65,7 @@ export const VotingForm = ({ refresh, user }) => {
         ))
       )}
       <button type="submit" style={buttonStyle} disabled={hasVoted}>
-        Submit Vote
+        Enviar voto
       </button>
     </form>
   );

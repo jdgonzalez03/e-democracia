@@ -1,0 +1,17 @@
+.voting-results-container {
+  padding: 20px;
+}
+
+.chart-container {
+  margin-top: 20px;
+}
+
+h2, h3 {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .chart-container {
+    width: 100%;
+  }
+}

@@ -33,7 +33,7 @@ export const Voting = ({ user }) => {
 
   return (
     <div>
-      <h2>Voting</h2>
+      <h2 className="yellow">Votaciones</h2>
       <VotingForm refresh={refresh} user={user} />
       <VotingResults results={candidates} />
     </div>
