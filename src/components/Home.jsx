@@ -10,7 +10,7 @@ export const Home = () => {
       </h1>
       <figure className="image-container">
         <img
-          src="./public/images/home.png"
+          src="/images/home.png"
           alt="Gente tratando de decidir"
           className="home-image"
         />

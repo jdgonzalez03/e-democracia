@@ -9,7 +9,7 @@ export const About = () => {
 
       <div className="students-container">
         <Developer
-          imgUrl={"./public/images/pablo.jpeg"}
+          imgUrl={"/images/pablo.jpeg"}
           id={"161004539"}
           name={"Juan P. Sanchez"}
           firstRol={"Estudiante"}
@@ -18,7 +18,7 @@ export const About = () => {
         />
 
         <Developer
-          imgUrl={"./public/images/edward.jpeg"}
+          imgUrl={"/images/edward.jpeg"}
           id={"161004525"}
           name={"Edward D. Mendez"}
           firstRol={"Estudiante"}
@@ -27,7 +27,7 @@ export const About = () => {
         />
 
         <Developer
-          imgUrl={"./public/images/juan.jpeg"}
+          imgUrl={"/images/juan.jpeg"}
           id={"161004518"}
           name={"Juan D. Gonzalez"}
           firstRol={"Estudiante"}
