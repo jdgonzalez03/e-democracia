@@ -1,6 +1,7 @@
 .home-container {
   text-align: center;
   padding: 20px;
+  margin: 0 auto;
 }
 
 .title-home {
@@ -18,5 +19,22 @@
   width: 100%;
   height: auto;
   border-radius: 5px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.01);
+}
+
+@media  screen and (min-width: 720px) {
+  .home-container{
+    margin-top: 100px;
+    width: 95vw;
+  }
+
+  .title-home, .home-image{
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .home-image{
+    margin-top: 50px;
+  }
+  
 }

@@ -120,4 +120,13 @@ header{
   .logo{
     font-size: 1.8em;
   }
+
+  .container-navbar{
+    flex-direction: row;
+  }
+
+  heder{
+    position: absolute;
+    top: 0;
+  }
 }

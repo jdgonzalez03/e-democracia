@@ -1,8 +1,9 @@
 import { Developer } from "./Developer";
 import "./Developer.css";
+import "./About.css";
 export const About = () => {
   return (
-    <>
+    <section className="about-section">
       <h2>
         Acerca de <br /> Nosotros
       </h2>
@@ -35,6 +36,6 @@ export const About = () => {
           career={"Ing.Electrónica"}
         />
       </div>
-    </>
+    </section>
   );
 };

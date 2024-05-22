@@ -114,3 +114,31 @@
   background-color: var(--type-electric);
   color: var(--clr-black);
 }
+
+@media screen and (min-width:720px) {
+  .students-container{
+    margin: 0 auto;
+  }
+}
+
+
+@media screen and (min-width:470px) {
+  .students-container{
+    margin-top: 100px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .student-image img{
+    width: 100%;
+    max-width: 9rem;
+    border: 1px solid transparent;
+    border-radius: 5px;
+  }
+}
+
+@media screen and (min-width:720px) {
+  .students-container{
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
