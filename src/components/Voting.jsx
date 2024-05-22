@@ -5,6 +5,7 @@ import { VotingResults } from "./VotingResult";
 import { VotingForm } from "./VotingForm";
 import axios from "axios";
 import { candidateUrl } from "../constants/urls";
+import "./Voting.css";
 
 export const Voting = ({ user }) => {
   const [candidates, setCandidates] = useState([]);
@@ -32,7 +33,7 @@ export const Voting = ({ user }) => {
   };
 
   return (
-    <div>
+    <div className="voting-section">
       <h2 className="yellow">Votaciones</h2>
       <VotingForm refresh={refresh} user={user} />
       <VotingResults results={candidates} />

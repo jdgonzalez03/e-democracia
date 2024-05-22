@@ -4,6 +4,7 @@ import Candidate from "./Candidate";
 import axios from "axios";
 import { candidateUrl, voteUrl } from "../constants/urls";
 import confetti from "canvas-confetti";
+import "./VotingForm.css";
 
 export const VotingForm = ({ refresh, user }) => {
   const [selectedCandidate, setSelectedCandidate] = useState("");
@@ -56,13 +57,15 @@ export const VotingForm = ({ refresh, user }) => {
       {hasVoted ? (
         <p>Ya has votado anteriormente.</p>
       ) : (
-        candidates.map((candidate) => (
-          <Candidate
-            key={candidate._id}
-            candidate={candidate}
-            onSelect={setSelectedCandidate}
-          />
-        ))
+        <div className="candidate-container">
+          {candidates.map((candidate) => (
+            <Candidate
+              key={candidate._id}
+              candidate={candidate}
+              onSelect={setSelectedCandidate}
+            />
+          ))}
+        </div>
       )}
       <button type="submit" style={buttonStyle} disabled={hasVoted}>
         Enviar voto
