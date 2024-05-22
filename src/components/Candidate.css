@@ -1,19 +1,78 @@
 /* src/components/Candidate.css */
 .candidate {
-  border: 1px solid #ccc;
+  width: 80vw;
+  margin: 0 auto;
   padding: 16px;
-  margin: 16px 0;
-  display: flex;
-  align-items: center;
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.25);;
+  box-shadow:  0 0 3rem -1rem rgba(0,0,0,0.25);
+  text-transform: uppercase;
+  position: relative;
+  isolation: isolate; /*Hace que los z index no vayan mas atras de este elemento*/
+  overflow: hidden;
+  margin-bottom: 1em;
+  transition: transform 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.candidate:hover{
+  transform: scale(0.9);
+  border-color: #87CEEB;
+  
 }
 
 .candidate img {
-  max-width: 100px;
-  margin-right: 16px;
+  max-width: 150px;
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: center;
 }
 
 .candidate label {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+}
+
+.student-info{
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.candidate-slogan{
+  background-color: var(--clr-gray);
+  color: black;
+  padding: .25rem .5rem;
+  border-radius: 100vmax;
+  font-size: .75rem;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.candidate-nombre{
+  font-size: 1.4rem;
+  color: white;
+}
+
+.partido{
+  padding: .25rem .5rem;
+  border-radius: 100vmax;
+  color: black;
+  font-size: 0.85em;
+}
+
+.rojo{
+  background-color: #C03028;
+}
+
+.verde{
+  background-color: #78C850;;
+}
+
+.azul{
+  background-color: #87CEEB;;
 }
