@@ -1,3 +1,40 @@
+import { Developer } from "./Developer";
+import "./Developer.css";
 export const About = () => {
-  return <h2>About</h2>;
+  return (
+    <>
+      <h2>
+        Acerca de <br /> Nosotros
+      </h2>
+
+      <div className="students-container">
+        <Developer
+          imgUrl={"./public/images/pablo.jpeg"}
+          id={"161004539"}
+          name={"Juan P. Sanchez"}
+          firstRol={"Estudiante"}
+          secondRol={"Lider"}
+          career={"Ing.Electrónica"}
+        />
+
+        <Developer
+          imgUrl={"./public/images/edward.jpeg"}
+          id={"161004525"}
+          name={"Edward D. Mendez"}
+          firstRol={"Estudiante"}
+          secondRol={"Lider"}
+          career={"Ing.Electrónica"}
+        />
+
+        <Developer
+          imgUrl={"./public/images/juan.jpeg"}
+          id={"161004518"}
+          name={"Juan D. Gonzalez"}
+          firstRol={"Estudiante"}
+          secondRol={"Lider"}
+          career={"Ing.Electrónica"}
+        />
+      </div>
+    </>
+  );
 };

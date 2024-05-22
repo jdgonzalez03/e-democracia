@@ -1,0 +1,116 @@
+:root {
+  --clr-black: #1c1c1c;
+  --clr-gray: #ececec;
+  --clr-white: #f7f7f7;  
+  --type-fire: #F08030;
+  --type-electric: #F8D030;
+}
+
+.students-container{
+  width: 80vw;
+  margin: 0 auto;
+  background-color: transparent;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  color: var(--clr-black);
+}
+
+.student-id, .student-nombre{
+  margin: 0;
+  padding-top: 10px;
+}
+
+.student-tipos{
+  margin: 0;
+}
+.student{
+  border-radius: 1rem;
+  background-color: rgba(0,0,0,0.25);;
+  box-shadow:  0 0 3rem -1rem rgba(0,0,0,0.25);
+  padding-block: 1rem;
+  text-transform: uppercase;
+  position: relative;
+  isolation: isolate; /*Hace que los z index no vayan mas atras de este elemento*/
+  overflow: hidden;
+}
+
+.student-image{
+  padding-inline: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.student-image img{
+  width: 100%;
+  max-width: 6rem;
+}
+
+.student-info{
+  padding-inline: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2rem;
+}
+
+.nombre-contenedor{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.student-id{
+  background-color: var(--clr-gray);
+  padding: .25rem .5rem;
+  border-radius: 100vmax;
+  font-size: .75rem;
+  font-weight: 500;
+  margin-top: 16px;
+}
+
+.student-nombre{
+  font-size: 1.4rem;
+  color: white;
+}
+
+.student-tipos {
+  display: flex;
+  gap: .5rem;
+  font-size: .75rem;
+  font-weight: 500;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tipo{
+  padding: .25rem .5rem;
+  border-radius: 100vmax;
+}
+
+.student-stats{
+  display: flex;
+  gap: 1rem;
+  font-size: 0.85rem;
+}
+
+.stat{
+  background-color: var(--clr-gray);
+  padding: .25rem .5rem;
+  border-radius: 100vmax;
+}
+
+
+.fire {
+  background-color: var(--type-fire);
+  color: var(--clr-black);
+}
+
+.electric {
+  background-color: var(--type-electric);
+  color: var(--clr-black);
+}
