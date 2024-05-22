@@ -11,7 +11,7 @@ export const Home = () => {
       <figure className="image-container">
         <img
           loading="lazy"
-          src="./public/images/home.jpg"
+          src="./public/images/home.png"
           alt="Gente tratando de decidir"
           className="home-image"
         />
