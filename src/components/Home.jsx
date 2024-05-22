@@ -1,9 +1,21 @@
+import "./Home.css";
+
 export const Home = () => {
   return (
-    <>
-      <header>
-        <h1>Online Voting App</h1>
-      </header>{" "}
-    </>
+    <div className="home-container">
+      <h1 className="title-home">
+        El <span className="yellow">poder</span> de escoger a tus{" "}
+        <span className="blue">representantes</span>a la palma de tu{" "}
+        <span className="red">mano</span>.
+      </h1>
+      <figure className="image-container">
+        <img
+          loading="lazy"
+          src="./public/images/home.jpg"
+          alt="Gente tratando de decidir"
+          className="home-image"
+        />
+      </figure>
+    </div>
   );
 };
