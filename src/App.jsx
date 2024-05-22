@@ -23,37 +23,39 @@ const App = () => {
 
   return (
     <>
-      <div className="container-navbar">
-        <p className="logo">
-          E-<span className="yellow yellow-animation">Demo</span>
-          <span className="blue blue-animation">cra</span>
-          <span className="red red-animation">cia</span>
-        </p>
-        <nav>
-          <ul>
-            {!isAuthenticated ? (
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            ) : (
-              <>
+      <header>
+        <div className="container-navbar">
+          <p className="logo">
+            E-<span className="yellow yellow-animation">Demo</span>
+            <span className="blue blue-animation">cra</span>
+            <span className="red red-animation">cia</span>
+          </p>
+          <nav>
+            <ul>
+              {!isAuthenticated ? (
                 <li>
-                  <Link to="/">Home</Link>
+                  <Link to="/login">Login</Link>
                 </li>
-                <li>
-                  <Link to="/about">About</Link>
-                </li>
-                <li>
-                  <Link to="/voting">Voting</Link>
-                </li>
-                <li>
-                  <button onClick={handleLogout}>Logout</button>
-                </li>
-              </>
-            )}
-          </ul>
-        </nav>
-      </div>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/">Home</Link>
+                  </li>
+                  <li>
+                    <Link to="/about">About</Link>
+                  </li>
+                  <li>
+                    <Link to="/voting">Voting</Link>
+                  </li>
+                  <li>
+                    <button onClick={handleLogout}>Logout</button>
+                  </li>
+                </>
+              )}
+            </ul>
+          </nav>
+        </div>
+      </header>
       <Routes>
         <Route
           path="/"

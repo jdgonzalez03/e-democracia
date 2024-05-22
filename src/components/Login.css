@@ -1,6 +1,11 @@
 .welcome-section{
-  padding: 20px;
+  padding-top: 50px;
   height: calc(100vh - 400px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
 }
 
 .welcome-section p span{
@@ -8,7 +13,8 @@
 }
 
 .login-form {
-  max-width: 300px;
+  max-width: 400px;
+  width: 80%;
   margin: auto;
   padding: 20px;
   border-radius: 5px;
@@ -59,4 +65,19 @@ label {
   background-color: transparent;
   text-decoration: underline;
   
+}
+
+@media screen and (min-width:720px) {
+  .welcome-section h2 {
+    font-size: 3em;
+  }
+
+  .welcome-section p{
+    font-size: 2rem;
+  }
+
+
+  .welcome-section br{
+    display: none;
+  }
 }

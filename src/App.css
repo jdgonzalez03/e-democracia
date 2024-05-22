@@ -45,6 +45,12 @@ li{
 
 
 /* NAVBAR */
+header{
+  width: 100vw;
+  background-color: #1a1a1a;
+  margin-bottom: 10px;
+}
+
 .container-navbar{
   display: flex;
   flex-direction: column;
@@ -52,7 +58,6 @@ li{
   margin: auto;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a1a;
   padding: 16px;
 }
 .container-navbar ul{
@@ -109,4 +114,10 @@ li{
 .red-animation {
   animation: enlarge 3s infinite;
   animation-delay: 2s;
+}
+
+@media screen and (min-width:720px) {
+  .logo{
+    font-size: 1.8em;
+  }
 }
