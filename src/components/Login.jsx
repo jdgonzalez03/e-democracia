@@ -25,6 +25,7 @@ export const Login = ({ onLogin }) => {
       );
 
       if (user) {
+        alert(`Bienvenido ${user.firstName} ${user.lastName}`);
         onLogin(user); // Asume que la función onLogin ahora maneja el ID del usuario
       } else {
         setError("Invalid username or password");

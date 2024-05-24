@@ -3,11 +3,29 @@ import "./VotingResults.css";
 import { Bar, Pie } from "react-chartjs-2";
 import "chart.js/auto";
 import "./VotingResult.css";
+import { candidateUrl } from "../constants/urls";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
-export const VotingResults = ({ results }) => {
+export const VotingResults = () => {
   // Extraemos los nombres y los votos de los candidatos
-  const candidateNames = results.map((candidate) => candidate.name);
-  const votes = results.map((candidate) => candidate.votes);
+  const [candidates, setCandidates] = useState([]);
+
+  useEffect(() => {
+    const fetchCandidates = async () => {
+      try {
+        const response = await axios.get(candidateUrl);
+        setCandidates(response.data);
+      } catch (error) {
+        console.error("Error fetching candidates:", error);
+      }
+    };
+
+    fetchCandidates();
+  }, [candidates]);
+
+  const candidateNames = candidates.map((candidate) => candidate.name);
+  const votes = candidates.map((candidate) => candidate.votes);
 
   // Datos para el diagrama de barras
   const barChartData = {

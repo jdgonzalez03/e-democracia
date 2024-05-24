@@ -1,42 +1,39 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState, useEffect } from "react";
-import { VotingResults } from "./VotingResult";
 import { VotingForm } from "./VotingForm";
 import axios from "axios";
-import { candidateUrl } from "../constants/urls";
+import { userUrl } from "../constants/urls";
 import "./Voting.css";
 
 export const Voting = ({ user }) => {
-  const [candidates, setCandidates] = useState([]);
+  const [userInfo, setUserInfo] = useState(user);
 
   useEffect(() => {
-    const fetchCandidates = async () => {
+    const fetchUserInfo = async () => {
       try {
-        const response = await axios.get(candidateUrl);
-        setCandidates(response.data);
+        const response = await axios.get(`${userUrl}/${String(user.code)}`); // Asegúrate de que user.id es el identificador correcto
+        setUserInfo(response.data);
       } catch (error) {
-        console.error("Error fetching candidates:", error);
+        console.error("Error fetching user info:", error);
       }
     };
-
-    fetchCandidates();
+    fetchUserInfo();
   }, []);
 
   const refresh = async () => {
     try {
-      const response = await axios.get(candidateUrl);
-      setCandidates(response.data);
+      const userResponse = await axios.get(`${userUrl}/${user.code}`);
+      setUserInfo(userResponse.data);
     } catch (error) {
-      console.error("Error fetching candidates:", error);
+      console.error("Error fetching data:", error);
     }
   };
 
   return (
     <div className="voting-section">
       <h2 className="yellow">Votaciones</h2>
-      <VotingForm refresh={refresh} user={user} />
-      <VotingResults results={candidates} />
+      <VotingForm refresh={refresh} user={userInfo} />
     </div>
   );
 };

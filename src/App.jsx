@@ -6,6 +6,7 @@ import { About } from "./components/About";
 import { Voting } from "./components/Voting";
 import { Login } from "./components/Login";
 import "./App.css";
+import { VotingResults } from "./components/VotingResult";
 
 const App = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -39,13 +40,16 @@ const App = () => {
               ) : (
                 <>
                   <li>
-                    <Link to="/">Home</Link>
+                    <Link to="/">Principal</Link>
                   </li>
                   <li>
-                    <Link to="/about">About</Link>
+                    <Link to="/about">Acerca</Link>
                   </li>
                   <li>
-                    <Link to="/voting">Voting</Link>
+                    <Link to="/voting">Votaciones</Link>
+                  </li>
+                  <li>
+                    <Link to="/result">Resultados</Link>
                   </li>
                   <li>
                     <button onClick={handleLogout}>Logout</button>
@@ -60,6 +64,16 @@ const App = () => {
         <Route
           path="/"
           element={isAuthenticated ? <Home /> : <Login onLogin={handleLogin} />}
+        />
+        <Route
+          path="/result"
+          element={
+            isAuthenticated ? (
+              <VotingResults />
+            ) : (
+              <Login onLogin={handleLogin} />
+            )
+          }
         />
         <Route
           path="/about"

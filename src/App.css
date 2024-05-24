@@ -63,6 +63,7 @@ header{
 .container-navbar ul{
   padding: 0;
   display: flex;
+  flex-direction: column;
 }
 
 .container-navbar button{
@@ -122,6 +123,10 @@ header{
   }
 
   .container-navbar{
+    flex-direction: row;
+  }
+
+  .container-navbar ul{
     flex-direction: row;
   }
 

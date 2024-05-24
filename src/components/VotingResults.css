@@ -6,3 +6,10 @@
 .chart-container > div {
   margin: 20px 0;
 }
+
+@media screen and (min-width:720px) {
+  .voting-results-container{
+    width: 100vw;
+    margin: 50px auto;
+  }
+}
